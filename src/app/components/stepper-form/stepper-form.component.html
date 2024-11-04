@@ -1,0 +1,67 @@
+<mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup" (ngSubmit)="saveFirstStepData(firstFormGroup)">
+            <ng-template matStepLabel>Fill out The product details</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Product Name</mat-label>
+                <input matInput placeholder="pName" formControlName="pNameCtrl" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="price" formControlName="priceCtrl" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Image Path</mat-label>
+                <input matInput placeholder="image path" formControlName="imagePathCtrl" required>
+            </mat-form-field>
+            <div><button mat-button matStepperNext type="submit">SAVE</button></div>
+            <div><button mat-button matStepperNext>NEXT</button></div>
+        </form>
+    </mat-step>
+<mat-step [stepControl]="secondFormGroup">
+    <form class="basic-container" [formGroup]="itineryForm" (ngSubmit)="saveSecondStepData(itineryForm.value)">
+        <mat-toolbar color="primary">
+            Add/Remove multiple day itinery
+        </mat-toolbar>
+        <div formArrayName="itineries">
+            <div class="row" *ngFor="let product of itineriesArr().controls; let i = index" [formGroupName]="i">
+    
+    
+                <mat-form-field class="col-4">
+                    <input matInput formControlName="day" placeholder="day">
+                </mat-form-field>
+    
+    
+                <mat-form-field class="col-4">
+                    <input matInput formControlName="location" placeholder="location">
+                </mat-form-field>
+    
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Activities</mat-label>
+                    <mat-select formControlName="activities" multiple>
+                        <mat-option *ngFor="let activity of productLabels" [value]="activity">{{activity}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+    
+                <div class="col-3">
+                    <button class="float-left" mat-icon-button color="primary" aria-label="Remove/clear"
+                        (click)="removeOrClearItinery(i)" matTooltip="Remove">
+                        <mat-icon>highlight_off</mat-icon>
+                    </button>
+                    <button class="float-left" mat-icon-button color="primary" aria-label="Add"
+                        (click)="addItineryFormGroup()" matTooltip="Add">
+                        <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button mat-button matStepperNext type="submit">Save</button>
+        </div>
+    </form>
+
+</mat-step>
+
+</mat-stepper>

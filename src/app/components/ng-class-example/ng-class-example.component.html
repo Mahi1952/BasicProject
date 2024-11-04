@@ -1,0 +1,14 @@
+<div class="ngClassDemo">
+    <div [ngClass]="{bordered:false}">This is never bordered</div>
+    <div [ngClass]="{bordered:true}">This is always bordered</div>
+
+    <div [ngClass]="{bordered:isBordered}">
+        Using object literal. Border {{isBordered?"ON":"OFF"}}
+    </div>
+
+    <div [ngClass]="classesObj">
+        Using object var. Border {{classesObj.bordered?"ON":"OFF"}}
+    </div>
+
+    <button class="btn btn-danger" (click)="toggleBorder()">Toggle🐬</button>
+</div>

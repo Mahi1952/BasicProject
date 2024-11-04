@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Demo Form with FormBuilder</h2>
+    <div class="row">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+            <div>
+                <label for="skInput">Input </label>
+                <input type="text" id="skuInput" placeholder="SKU" formControlName="sku">
+                <div *ngIf="!myForm.controls['sku'].valid" class="text-danger">SKU id Invalid</div>
+                <div *ngIf="myForm.controls['sku'].hasError('required')" class="text-danger">
+                    SKU is required
+                </div>
+                <div *ngIf="myForm.controls['sku'].hasError('invalidSku')" class="text-danger">
+                    SKU Must Begin with 123
+                </div>
+            </div>
+
+
+            <div *ngIf="!myForm.valid" style="color: red;">Form is Invalid</div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

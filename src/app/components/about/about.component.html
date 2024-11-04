@@ -1,0 +1,13 @@
+<h2>Demo Form with FormBuilder</h2>
+<form [formGroup]="myForm"
+(ngSubmit)="onSubmit(myForm.value)">
+    <div>
+        <label for="skInput">Input </label>
+        <input type="text"
+        id="skuInput"
+        placeholder="SKU"
+        formControlName="sku">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

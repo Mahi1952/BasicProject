@@ -1,0 +1,58 @@
+<p>style-directive works!</p>
+<h4>
+    styles.background-color
+</h4>
+<div class="container">
+    <div class="row" [style.background-color]="'cyan'">
+        CYAN COLOR TEST
+    </div>
+
+    <div class="row" [style.background-color]="'magenta'">
+        MAGENTA COLOR TEST
+    </div>
+
+    <div class="row" [style.background-color]="'yellow'">
+        YELLOW COLOR TEST
+    </div>
+
+    <div class="row" [ngStyle]="{'color':'white','background-color':'green'}">
+        White text Green BG
+    </div>
+
+    <div class="row" [ngStyle]="style"></div>
+
+    <div class="row">
+        <form (ngSubmit)="changeStyle()">
+            <div class="mb-3">
+                <label for="color" class="form-label">Add color</label>
+                <input type="text" class="form-control" id="color" [(ngModel)]="color" name="color" required>
+            </div>
+            <div class="mb-3">
+                <label for="size" class="form-label">Add size (e.g., 100px)</label>
+                <input type="text" class="form-control" id="size" [(ngModel)]="size" name="size" required>
+            </div>
+            <button class="btn btn-success" type="submit">Change</button>
+        </form>
+    </div>
+
+    <br>
+
+    <div class="text-container row" [ngStyle]="textStyle">
+        <h5>This is your text!</h5>
+    </div>
+
+    <div class="row">
+        <form (ngSubmit)="changeTextStyle()">
+            <div class="mb-3">
+                <label for="textColor" class="form-label">Add text color</label>
+                <input type="text" class="form-control" id="textColor" [(ngModel)]="textColor" name="textColor"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="textSize" class="form-label">Add text size (e.g., 20px)</label>
+                <input type="text" class="form-control" id="textSize" [(ngModel)]="textSize" name="textSize" required>
+            </div>
+            <button class="btn btn-success" type="submit">Change</button>
+        </form>
+    </div>
+</div>

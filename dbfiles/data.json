@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": 104,
+      "pName": "PPE",
+      "price": 45,
+      "imgPath": "img1.jpg"
+    },
+    {
+      "id": 105,
+      "pName": "Prod",
+      "price": 45,
+      "imgPath": "img2.jpg"
+    }
+  ]
+}

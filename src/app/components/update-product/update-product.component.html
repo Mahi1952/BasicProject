@@ -1,0 +1,40 @@
+<div class="container-fluid align--items-center">
+    <mat-horizontal-stepper linear>
+        <mat-step label="Select Product">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select a Product to update</mat-label>
+                        <mat-select formControlName="id" (selectionChange)="onChangeType($event)">
+                            <mat-option value="" disabled>Select a Value</mat-option>
+                            <mat-option *ngFor="let p of arrProducts" [value]="p.id">{{ p.pName }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <button mat-button matStepperNext>Next</button>
+            </form>
+        </mat-step>
+
+        <mat-step label="Update Product Details">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Product Name</mat-label>
+                    <input matInput formControlName="pName" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Price</mat-label>
+                    <input matInput type="number" formControlName="price" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Image Path</mat-label>
+                    <input matInput formControlName="imgPath" />
+                </mat-form-field>
+
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button type="submit">Update</button>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

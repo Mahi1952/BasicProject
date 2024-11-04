@@ -1,0 +1,22 @@
+<div class="container">
+    <div *ngIf="show">
+        Show
+    </div>
+    <div *ngIf="!show">
+        Not Show
+    </div>
+    <button class="btn btn-primary" (click)="onClick()"> Toggle</button>
+</div>
+<div class="container">
+    <div class="container" [ngSwitch]="counter">
+        <div *ngSwitchCase="0">{{counter}}</div>
+        <div *ngSwitchCase="1">{{counter}}</div>
+        <div *ngSwitchCase="2">{{counter}}</div>
+        <div *ngSwitchCase="3">{{counter}}</div>
+        <div *ngSwitchCase="4">{{counter}}</div>
+        <div *ngSwitchCase="5">{{counter}}</div>
+        <div *ngSwitchCase="6">{{counter}}</div>
+        <div *ngSwitchDefault>{{counter}} more than 6</div>
+    </div>
+    <button class="btn btn-primary" (click)="counterInc()">INC switch</button>
+</div>

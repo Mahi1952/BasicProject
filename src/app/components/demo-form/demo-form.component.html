@@ -1,0 +1,15 @@
+<div class="ui info message">
+    the product name is {{productName}}
+</div>
+
+<form #myForm="ngForm"
+    (ngSubmit) = "onSubmit(myForm.value)" class="ui form">
+    <div class="field">
+        <input type="text" id="productNameInput"
+        placeholder="Product Name"
+        name="productName"
+        [(ngModel)]="productName">
+    </div>
+    <button type="submit" class="ui button">Submit</button>
+</form>
+
